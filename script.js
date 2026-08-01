@@ -94,3 +94,101 @@ opacity:0;
 `;
 
 document.head.appendChild(style);
+// =======================
+// Cake Celebration
+// =======================
+
+const cakeBtn = document.getElementById("cakeBtn");
+const giftBox = document.getElementById("giftBox");
+const finalMessage = document.getElementById("finalMessage");
+
+if (cakeBtn) {
+    cakeBtn.addEventListener("click", () => {
+
+        // Hearts Speed
+        for (let i = 0; i < 30; i++) {
+            setTimeout(createHeart, i * 120);
+        }
+
+        // Confetti Effect
+        for (let i = 0; i < 80; i++) {
+
+            const confetti = document.createElement("div");
+
+            confetti.innerHTML = "✨";
+
+            confetti.style.position = "fixed";
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.top = "-20px";
+            confetti.style.fontSize = (12 + Math.random() * 15) + "px";
+            confetti.style.pointerEvents = "none";
+            confetti.style.zIndex = "9999";
+            confetti.style.animation = "confettiFall 4s linear forwards";
+
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 4000);
+
+        }
+
+        alert("🎉 Happy Birthday Ayesha ❤️");
+    });
+}
+
+// =======================
+// Gift Box
+// =======================
+
+if (giftBox) {
+
+    giftBox.addEventListener("click", () => {
+
+        finalMessage.classList.remove("hidden");
+
+        giftBox.innerHTML = "💖";
+
+        window.scrollTo({
+
+            top: document.body.scrollHeight,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+}
+
+// =======================
+// Confetti Animation
+// =======================
+
+const confettiStyle = document.createElement("style");
+
+confettiStyle.innerHTML = `
+
+@keyframes confettiFall{
+
+0%{
+
+transform:translateY(-20px) rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(confettiStyle);
