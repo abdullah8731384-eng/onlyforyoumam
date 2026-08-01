@@ -192,3 +192,30 @@ opacity:0;
 `;
 
 document.head.appendChild(confettiStyle);
+// ==========================
+// Shooting Stars
+// ==========================
+
+function createShootingStar(){
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.top = Math.random()*40+"vh";
+    star.style.left = (60+Math.random()*40)+"vw";
+
+    star.style.animationDuration =
+    (2+Math.random()*2)+"s";
+
+    document.body.appendChild(star);
+
+    setTimeout(()=>{
+
+        star.remove();
+
+    },4000);
+
+}
+
+setInterval(createShootingStar,2500);
