@@ -8,11 +8,7 @@ const message = `Happy Birthday, Ayesha ❤️
 
 Today is all about celebrating the wonderful person you are.
 
-May Allah bless you with happiness,
-peace,
-success,
-good health,
-and endless smiles.
+May Allah bless you with happiness, peace, success, good health and endless smiles.
 
 Thank you for being such a special part of life.
 
@@ -28,11 +24,8 @@ let i = 0;
 
 function typeEffect() {
     if (i < message.length) {
-        if (message.charAt(i) === "\n") {
-            typewriter.innerHTML += "<br>";
-        } else {
-            typewriter.innerHTML += message.charAt(i);
-        }
+        typewriter.innerHTML +=
+            message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
         i++;
         setTimeout(typeEffect, 40);
     }
@@ -43,18 +36,12 @@ startBtn.addEventListener("click", () => {
     loader.style.display = "none";
     main.classList.remove("hidden");
 
-    // Play Background Music
-    if (bgMusic) {
-        bgMusic.volume = 0.5;
-        bgMusic.play().catch(error => {
-            console.log("Music Error:", error);
-        });
-    }
+    // Music Play
+    bgMusic.play().catch(err => console.log(err));
 
     typeEffect();
 
     setInterval(createHeart, 300);
-
 });
 
 function createHeart() {
@@ -69,7 +56,6 @@ function createHeart() {
     heart.style.fontSize = (20 + Math.random() * 20) + "px";
     heart.style.pointerEvents = "none";
     heart.style.animation = "floatUp 6s linear forwards";
-    heart.style.zIndex = "9999";
 
     document.body.appendChild(heart);
 
@@ -81,15 +67,15 @@ function createHeart() {
 const style = document.createElement("style");
 
 style.innerHTML = `
-@keyframes floatUp {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-120vh);
-        opacity: 0;
-    }
+@keyframes floatUp{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
 }
 `;
 
